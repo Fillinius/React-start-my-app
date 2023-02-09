@@ -31,15 +31,17 @@ const CountersList =() =>{
     setCounters(updateState)
   }
   const handleIncrement =(id)=>{
-    const newValue = initionalState.map(val=>{
+    
+    const newValueIncrement = initionalState.map(val=>{
       if(id===val.id){
-        console.log(val)
-        let{id,value,name} = val
-          return {id:id, value:value+1, name}
-    }
+        let{id,value, name}= val
+          let newVal = val
+            newVal ={id:id, value: value+1, name}
+              return newVal
+      } return val
    })
-   console.log(newValue)
-    // setCounters(newValue)
+   console.log('newValueIncrement', newValueIncrement)
+     setCounters(newValueIncrement)
        
 
   }
