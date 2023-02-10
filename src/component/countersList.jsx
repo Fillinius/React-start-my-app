@@ -28,7 +28,8 @@ const CountersList =() =>{
    })
      setCounters(newValueIncrement)
   }
-
+// Мой вариант решения
+/*
   const handleDecrement =(id)=>{
     const newValueDecrement = counters.map(val=>{
       if(id===val.id){
@@ -40,6 +41,18 @@ const CountersList =() =>{
    })
      setCounters(newValueDecrement)
   }
+  */
+ // Лучший вариант решения
+ const handleDecrement = (id) => {
+  const newCount = counters.map(item => ({ // map возвращает сразу новый обьект, в котором по условию меняем value на единичку
+    ...item, // на этой строке разворячиваем в итоговый обьектостальные ключи
+    value: item.id === id ? item.value + 1 : item.value // а этот меняем
+    
+  }))
+ setCounters(newCount)
+}
+
+
   return (
       <>
         {counters.map(count=>(
